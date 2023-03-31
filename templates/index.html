@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Home {% endblock %}
+
+
+{% block body %}
+    <div class="container mt-4"> 
+        {% with messages = get_flashed_messages()%}
+            {%if messages %}
+                {%for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+
+            {% endif %}
+        {% endwith %}
+        <table class=""table table-success table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tilte</th>
+                <th>Description</th>
+                
+                
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <td>{{post.id}}</td>
+                <td>{{post.title}}</td>
+                <td>{{post.description}}</td>
+                <td>
+                    <a href="/update/{{post.id}}" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaledit{{post.id}}">Modifier</a>
+                    <a href="/delete/{{post.id}}" class="btn btn-danger" onclick="return confirm('Etes-vous sûr de vouloir supprimer')">Supprimer</a>
+                </td>
+                
+            </tr>
+
+
+            <!-- update model -->
+ <div id="modaledit{{post.id}}" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h4 class="modal-title">Update Etape</h4>
+          </div>
+          <div class="modal-body">
+ 
+             <form action="{{url_for('update')}}" method="POST">
+ 
+ 
+                <div class="form-group">
+ 
+                   <label>Titre:</label>
+                    <input type="hidden"  name="id" value="{{post.id}}">
+                   <input type="text" class="form-control" name="titre" value="{{post.title}}" >
+ 
+                </div>
+ 
+ 
+ 
+                 <div class="form-group">
+                   <label>Description:</label>
+                   <input type="text" class="form-control" name="description" value="{{post.description}}">
+                </div>
+ 
+                
+                <div class="form-group">
+                   <button class="btn btn-primary mt-4" type="soumettre">Mettre a jour</button>
+                </div>
+ 
+ 
+             </form>
+ 
+ 
+          </div>
+ 
+ 
+          <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+ 
+          </div>
+ 
+ 
+       </div>
+ 
+ 
+    </div>
+ 
+ 
+ </div>
+ 
+
+            {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
