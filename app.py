@@ -1,11 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, Response
 from flask_sqlalchemy import SQLAlchemy
-from pygments import highlight
-from pygments.lexers import PythonLexer
-from pygments.formatters import HtmlFormatter
-import os
-from werkzeug.utils import secure_filename
-
 
 
 app = Flask(__name__)
