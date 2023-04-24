@@ -16,29 +16,38 @@
 
             {% endif %}
         {% endwith %}
-        <table class=""table table-success table-striped table-hover">
+        <table class="" table table-success table-striped table-hover">
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Tilte</th>
-                <th>Description</th>
+            <dl>
+                
+                <dt><h1>Deployement d'une application Flask sur AWS </h1> </dt>
                 
                 
-                <th colspan="2">Actions</th>
-            </tr>
+                
+                
+                
+            </dl>
         </thead>
         <tbody>
             {% for post in posts %}
-            <tr>
-                <td>{{post.id}}</td>
-                <td>{{post.title}}</td>
-                <td>{{post.description}}</td>
-                <td>
+            <dl>
+                
+                <dt>{{post.title}}</dt>
+                <dl colspan="2"></dl>
+                <dl name="Détails" placeholder="Ajouter des détails" rows="10" cols="70"> {{post.description}}  </dl>
+                       
+                
+                <dl colspan="2"></dl>
+                <dl>
+                    
+                    
                     <a href="/update/{{post.id}}" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaledit{{post.id}}">Modifier</a>
                     <a href="/delete/{{post.id}}" class="btn btn-danger" onclick="return confirm('Etes-vous sûr de vouloir supprimer')">Supprimer</a>
-                </td>
+                    
+                    
+                </dl>
                 
-            </tr>
+            </dl>
 
 
             <!-- update model -->
@@ -56,46 +65,36 @@
                 <div class="form-group">
  
                    <label>Titre:</label>
-                    <input type="hidden"  name="id" value="{{post.id}}">
+                   <input type="hidden"  name="id" value="{{post.id}}" size="20">
                    <input type="text" class="form-control" name="titre" value="{{post.title}}" >
- 
+                
                 </div>
- 
- 
  
                  <div class="form-group">
                    <label>Description:</label>
                    <input type="text" class="form-control" name="description" value="{{post.description}}">
+                   
                 </div>
  
-                
                 <div class="form-group">
                    <button class="btn btn-primary mt-4" type="soumettre">Mettre a jour</button>
                 </div>
  
- 
              </form>
  
- 
           </div>
- 
  
           <div class="modal-footer">
              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
  
           </div>
- 
- 
        </div>
- 
- 
-    </div>
- 
- 
+     </div>
  </div>
- 
 
+            
             {% endfor %}
+            
         </tbody>
         </table>
     </div>

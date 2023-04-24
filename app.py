@@ -1,5 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, Response
 from flask_sqlalchemy import SQLAlchemy
+from pygments import highlight
+from pygments.lexers import PythonLexer
+from pygments.formatters import HtmlFormatter
+import os
+from werkzeug.utils import secure_filename
 
 
 
@@ -7,6 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@flaskdb.clysdtuc3hyb.eu-west-3.rds.amazonaws.com/flaskaws'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key="somethingunique"
+
 
 db = SQLAlchemy(app)
 
@@ -16,6 +22,7 @@ class BlogPosts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(1000))
     description = db.Column(db.String(6000))
+    
 
     
 @app.route('/')
@@ -26,7 +33,8 @@ def index():
 @app.route('/add/', methods = ['POST'])
 def insert_post():
     if request.method =="POST":
-        post = BlogPosts(title = request.form.get('title'),
+        post = BlogPosts(id = request.form.get('id'),
+                         title = request.form.get('title'),
         description = request.form.get('description'))
         db.session.add(post)
         db.session.commit()
@@ -51,6 +59,10 @@ def delete(id):
     db.session.commit()
     flash("Suppression avec succès")
     return redirect(url_for('index'))
+
+
+  
+
 
 
 if __name__ == "__main__":
