@@ -18,15 +18,12 @@
         {% endwith %}
         <table class="" table table-success table-striped table-hover">
         <thead>
-            <dl>
-                
-                <dt><h1>Deployement d'une application Flask sur AWS </h1> </dt>
-                
-                
-                
-                
-                
-            </dl>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='aws.png') }}" alt="AWS logo" width="100" height="60">
+                <p class="image-title">   Amazon Web Services - Flask Python WebApp</p>
+                <p></p>
+              </div>
+            
         </thead>
         <tbody>
             {% for post in posts %}
@@ -41,7 +38,7 @@
                 <dl>
                     
                     
-                    <a href="/update/{{post.id}}" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modaledit{{post.id}}">Modifier</a>
+                    <a href="/update/{{post.id}}" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaledit{{post.id}}">Modifier</a>
                     <a href="/delete/{{post.id}}" class="btn btn-danger" onclick="return confirm('Etes-vous sûr de vouloir supprimer')">Supprimer</a>
                     
                     
