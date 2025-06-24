@@ -88,7 +88,6 @@ flask_aws/
 ├── templates/          # HTML
 ├── static/             # CSS, JS
 ├── requirements.txt    # Dépendances
-├── .ebextensions/      # Config AWS (optionnel)
 └── README.md
 ```
 
