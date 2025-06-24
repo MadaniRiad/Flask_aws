@@ -93,9 +93,9 @@ flask_aws/
 
 # 📚 Ressources
 
-Documentation Flask
-AWS Elastic Beanstalk
-AWS S3
+Documentation Flask : https://flask.palletsprojects.com/en/stable/
+AWS Elastic Beanstalk : https://aws.amazon.com/fr/elasticbeanstalk/
+AWS S3 : https://aws.amazon.com/fr/s3/
 GitHub
 
 🧑‍💻 Auteur
