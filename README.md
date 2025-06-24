@@ -55,7 +55,8 @@ flask run
 # ☁️ Déploiement via GitHub vers AWS Elastic Beanstalk
 ## Étapes :
 
-    Pousser le projet sur GitHub
+Pousser le projet sur GitHub
+
 ```
     git init
     git remote add origin https://github.com/<ton-utilisateur>/flask_aws.git
@@ -63,11 +64,10 @@ flask run
     git commit -m "Initial commit"
     git push -u origin main
 ```
-    Aller dans la console AWS → Elastic Beanstalk
+Aller dans la console AWS → Elastic Beanstalk
+Créer une nouvelle application
 
-    Créer une nouvelle application
-
-    Choisir :
+Choisir :
 
         Platform : Python
 
@@ -75,9 +75,9 @@ flask run
 
         Connecter ton compte GitHub si nécessaire
 
-    Sélectionner ton dépôt et ta branche main
+Sélectionner ton dépôt et ta branche main
 
-    Lancer le déploiement 🚀
+Lancer le déploiement 🚀
 
 # 📁 Structure du projet
 
@@ -94,13 +94,10 @@ flask_aws/
 
 # 📚 Ressources
 
-    Documentation Flask
-
-    AWS Elastic Beanstalk
-
-    AWS S3
-
-    GitHub
+Documentation Flask
+AWS Elastic Beanstalk
+AWS S3
+GitHub
 
 🧑‍💻 Auteur
 
